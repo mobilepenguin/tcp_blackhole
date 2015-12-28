@@ -4,7 +4,7 @@ from setuptools import setup
 # if os is window, add bin/.bat to scripts
 
 setup(name='tcp_blackhole',
-      version='0.1',
+      version='0.1.1',
       description='TCP Blackhole acts like a /dev/null for TCP packets. Can also be run as an echo server.',
       url='https://github.com/NanoDano/tcp_blackhole',
       author='NanoDano',
@@ -13,4 +13,4 @@ setup(name='tcp_blackhole',
       packages=['tcp_blackhole'],
       scripts=['bin/blackhole'],
       zip_safe=False,
-      requires=['docopt'])
+      install_requires=['docopt'])
