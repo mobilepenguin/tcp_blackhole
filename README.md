@@ -1,7 +1,7 @@
 # TCP Blackhole
 
 ## Summary
-Run a TCP server on a specific port to act like a TCP /dev/null. Optionally runs as an echo server.
+TCP server that acts like a /dev/null or echo server written in Python 3.
 
 ## Description
 
