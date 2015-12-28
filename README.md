@@ -11,13 +11,12 @@ server for testing and capturing packets from a client. Written with Python 3.
 
 ## Installation
 
-pip install tcp_blackhole
+	$ pip install tcp_blackhole
 
 ## Usage
 
-```
-blackhole <host> <port> [--echo]
-```
+	$ blackhole <host> <port> [--echo]
+
 
 ## Including in other Python scripts
 
@@ -27,7 +26,7 @@ blackhole = tcp_blackhole.TcpBlackhole(host='localhost', port=9876, echo=False)
 blackhole.start()
 ```
 
-# Contact
+## Contact
 
 nanodano@devdungeon.com
 
