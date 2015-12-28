@@ -62,3 +62,5 @@ target/
 
 # IntelliJ project files
 .idea
+
+.DS_Store
