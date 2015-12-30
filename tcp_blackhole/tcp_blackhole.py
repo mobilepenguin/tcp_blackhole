@@ -3,11 +3,12 @@ import threading
 
 
 class TcpBlackhole:
-    def __init__(self, host='localhost', port=9876, echo=False):
+    def __init__(self, host='localhost', port=9876, echoFlag=False, debugFlag=False):
         """Assign all the variables provided"""
         self.host = host
         self.port = port
-        self.echo = echo
+        self.echo = echoFlag
+        self.debug = debugFlag
         self.running = False
 
     def start(self):
@@ -36,9 +37,11 @@ class TcpBlackhole:
 
     def handle_client(self, running, client_socket):
         """Handle the client, read and discard until the client terminates the connection."""
-        request = client_socket.recv(4096)
-        while request and running:
+        request_data = client_socket.recv(4096)
+        while request_data and running:
             if self.echo:
-                client_socket.send(request)
-            request = client_socket.recv(4096)
+                client_socket.send(request_data)
+            if self.debug:
+                print(request_data)
+            request_data = client_socket.recv(4096)
         client_socket.close()
