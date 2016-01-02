@@ -10,7 +10,6 @@ class TcpBlackhole:
         self.echo = echoFlag
         self.debug = debugFlag
         self.http = httpFlag
-        self.running = False
 
     def start(self):
         """Bind the server and start listening for connections"""
@@ -28,18 +27,17 @@ class TcpBlackhole:
             exit(1)
 
         server.listen(5)
-        self.running = True
         print('Now listening. CTRL-C to end.')
 
         while True:
             client, addr = server.accept()
-            client_handler = threading.Thread(target=self.handle_client, args=(self.running, client))
+            client_handler = threading.Thread(target=self.handle_client, args=client)
             client_handler.start()
 
-    def handle_client(self, running, client_socket):
+    def handle_client(self, client_socket):
         """Handle the client, read and discard until the client terminates the connection."""
         request_data = client_socket.recv(4096)
-        while request_data and running:
+        while request_data:
             # If HTTP mode is on, start the response with proper HTTP response headers
             if self.http:
                 if self.echo:

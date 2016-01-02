@@ -25,7 +25,7 @@ Written with Python.
 ## Including in other Python scripts
 
 ```
-import tcp_blackhole
+from tcp_blackhole import TcpBlackhole
 blackhole = TcpBlackhole(
         host='localhost',
         port=9999,
@@ -39,10 +39,11 @@ blackhole.start()
 
 nanodano@devdungeon.com
 
-## Changes
+## Changelog
 
-0.3.0 - Add --http option to return data as an HTTP 200 OK. Can be used in combination with echo feature.
-0.2.0 - Added --echo feature to send data back to client and --debug feature to output to STDOUT
-0.1.0 - Added basic discard feature
+* 0.3.1 - Fixed import statement in readme and formatting of the changelog section. Removed unused running variable.
+* 0.3.0 - Add --http option to return data as an HTTP 200 OK. Can be used in combination with echo feature.
+* 0.2.0 - Added --echo feature to send data back to client and --debug feature to output to STDOUT
+* 0.1.0 - Added basic discard feature
 
 
