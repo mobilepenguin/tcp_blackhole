@@ -4,11 +4,12 @@
 Start a TCP server that will accept connections and then read and discard anything sent to it until it is stopped. Optionally can be run to echo any data received.
 
 Usage:
-  blackhole <host> <port> [--echo] [--debug]
+  blackhole <host> <port> [--echo] [--debug] [--http]
 
 Options:
   --echo        Send the data received back to client.
   --debug       Output any data received to STDOUT.
+  --http       Respond with HTTP 200 OK. If echo is also on, contents will be included.
   -h --help     Show this screen.
   --version     Show version.
 """
@@ -24,13 +25,15 @@ print('| Host:', args['<host>'])
 print('| Port:', args['<port>'])
 print("| Echo:", args['--echo'])
 print("| Debug:", args['--debug'])
+print("| Respond with HTTP OK:", args['--http'])
 print("=====================")
 
 blackhole = TcpBlackhole(
         host=args['<host>'],
         port=args['<port>'],
         echoFlag=args['--echo'],
-        debugFlag=args['--debug'])
+        debugFlag=args['--debug'],
+        httpFlag=args['--http'])
 
 try:
     blackhole.start()
