@@ -31,7 +31,7 @@ class TcpBlackhole:
 
         while True:
             client, addr = server.accept()
-            client_handler = threading.Thread(target=self.handle_client, args=client)
+            client_handler = threading.Thread(target=self.handle_client, args=(client,))
             client_handler.start()
 
     def handle_client(self, client_socket):

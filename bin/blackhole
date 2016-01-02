@@ -41,5 +41,3 @@ except KeyboardInterrupt as e:
     print('\nKeyboard interrupt received. Shutting down. This might hang if there are'
           ' active connections. Another CTRL-C may be required.')
     exit(0)
-
-

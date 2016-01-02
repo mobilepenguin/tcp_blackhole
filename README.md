@@ -41,6 +41,7 @@ nanodano@devdungeon.com
 
 ## Changelog
 
+* 0.3.3 - Fixed broken tuple argument for thread. Updated setup.py to install .bat always
 * 0.3.2 - Added blackhole.bat for convenience in Windows version. setup.py updated to only install it on nt systems. 
 * 0.3.1 - Fixed import statement in readme and formatting of the changelog section. Removed unused running variable.
 * 0.3.0 - Add --http option to return data as an HTTP 200 OK. Can be used in combination with echo feature.
